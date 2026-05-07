@@ -50,7 +50,7 @@ const Hero = () => {
 
                     <div className="col-lg-6 text-center">
                         <motion.img
-                            src="/restaurante/images/Robo.png"
+                            src="/robobi/images/Robo.png"
                             className="img-fluid"
                             alt="Robobi Tecnologia"
                             style={{

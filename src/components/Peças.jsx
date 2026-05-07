@@ -28,21 +28,21 @@ const Menu = () => {
 
     const menuData = {  
         Sensores: [
-            { name: "Sensor de Gás (MQ)", price: "Analógico", img: "restaurante/images/SensordeGás(MQ).jpg", desc: "Detecta fumaça e gases inflamáveis, essencial para prevenção de queimadas." },
-            { name: "Sensor de Som/Microfone", price: "Digital", img: "restaurante/images/SensorSomMicrofone.png", desc: "Monitoramento acústico para identificar sons de motosserras ou disparos." },
-            { name: "Sensor Infravermelho", price: "Digital", img: "restaurante/images/Sensorinfravermelho.jpg", desc: "Utilizado para detecção de obstáculos ou presença de calor." }
+            { name: "Sensor de Gás (MQ)", price: "Analógico", img: "robobi/images/SensordeGás(MQ).jpg", desc: "Detecta fumaça e gases inflamáveis, essencial para prevenção de queimadas." },
+            { name: "Sensor de Som/Microfone", price: "Digital", img: "robobi/images/SensorSomMicrofone.png", desc: "Monitoramento acústico para identificar sons de motosserras ou disparos." },
+            { name: "Sensor Infravermelho", price: "Digital", img: "robobi/images/Sensorinfravermelho.jpg", desc: "Utilizado para detecção de obstáculos ou presença de calor." }
         ],
         Processamento: [
-            { name: "ESP32-CAM", price: "Dual-Core", img: "restaurante/images/esp32cam.jpg", desc: "Módulo com câmera integrada para reconhecimento visual e streaming de vídeo." },
-            { name: "ESP32 DevKit V1", price: "WiFi/BT", img: "restaurante/images/esp32Noraml.jpg", desc: "Unidade central de processamento secundária para controle de sensores e lógica." },
-            { name: "Protoboards (x2)", price: "830 Pontos", img: "restaurante/images/Protoboards2.webp", desc: "Placas de ensaio para prototipagem rápida das conexões do Robôbi." },
-            { name: "Bateria Li-ion", price: "3.7V - 4.2V", img: "restaurante/images/BateriaLi-ion.webp", desc: "Fonte de energia recarregável para garantir a autonomia do robô em campo." }
+            { name: "ESP32-CAM", price: "Dual-Core", img: "robobi/images/esp32cam.jpg", desc: "Módulo com câmera integrada para reconhecimento visual e streaming de vídeo." },
+            { name: "ESP32 DevKit V1", price: "WiFi/BT", img: "robobi/images/esp32Noraml.jpg", desc: "Unidade central de processamento secundária para controle de sensores e lógica." },
+            { name: "Protoboards (x2)", price: "830 Pontos", img: "robobi/images/Protoboards2.webp", desc: "Placas de ensaio para prototipagem rápida das conexões do Robôbi." },
+            { name: "Bateria Li-ion", price: "3.7V - 4.2V", img: "robobi/images/BateriaLi-ion.webp", desc: "Fonte de energia recarregável para garantir a autonomia do robô em campo." }
         ],
         Energia: [
-            { name: "Mini Painel Solar Fotovoltaico", price: "5V - 6V", img: "restaurante/images/PainelSolarFotovoltaico.webp", desc: "Responsável pelo sistema de carregamento sustentável das baterias." },
-            { name: "Módulo TP4056", price: "USB", img: "restaurante/images/MóduloTP4056.webp", desc: "Controlador de carga para proteção e gerenciamento da bateria de lítio." },
-            { name: "Step-Down/Up Converter", price: "Ajustável", img: "restaurante/images/Step-DownUpConverter.jpg", desc: "Regula a tensão para alimentar os componentes com segurança." },
-            { name: "Jumpers Coloridos", price: "M/F - M/M", img: "restaurante/images/JumpersColoridos.jpg", desc: "Cabos para interconexão de todos os módulos e sensores." }
+            { name: "Mini Painel Solar Fotovoltaico", price: "5V - 6V", img: "robobi/images/PainelSolarFotovoltaico.webp", desc: "Responsável pelo sistema de carregamento sustentável das baterias." },
+            { name: "Módulo TP4056", price: "USB", img: "robobi/images/MóduloTP4056.webp", desc: "Controlador de carga para proteção e gerenciamento da bateria de lítio." },
+            { name: "Step-Down/Up Converter", price: "Ajustável", img: "robobi/images/Step-DownUpConverter.jpg", desc: "Regula a tensão para alimentar os componentes com segurança." },
+            { name: "Jumpers Coloridos", price: "M/F - M/M", img: "robobi/images/JumpersColoridos.jpg", desc: "Cabos para interconexão de todos os módulos e sensores." }
         ]
     };
 

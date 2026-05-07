@@ -33,7 +33,7 @@ const About = () => {
                                 <motion.img
                                     className='img-fluid rounded w-100 shadow'
                                     style={{ aspectRatio: '16/15', objectFit: 'cover' }}
-                                    src="restaurante/images/robobinafloresta.png"
+                                    src="robobi/images/robobinafloresta.png"
                                     alt="Robôbi na floresta"
                                 />
                             </div>
@@ -50,7 +50,7 @@ const About = () => {
                                         aspectRatio: '16/15',
                                         objectFit: 'cover'
                                     }}
-                                    src="restaurante/images/SensorRobo.png"
+                                    src="robobi/images/SensorRobo.png"
                                     alt="Sensores do Robôbi"
                                 />
                             </div>
@@ -60,7 +60,7 @@ const About = () => {
                                 <motion.img
                                     className='img-fluid rounded w-100 shadow'
                                     style={{ aspectRatio: '16/15', objectFit: 'cover', marginTop: '-20px' }} 
-                                    src="restaurante/images/desenvolvimentoRo.png"
+                                    src="robobi/images/desenvolvimentoRo.png"
                                     alt="Desenvolvimento do projeto"
                                 />
                             </div>
@@ -77,7 +77,7 @@ const About = () => {
                                         aspectRatio: '16/15',
                                         objectFit: 'cover'
                                     }}
-                                    src="restaurante/images/sistemaSolarR.png"
+                                    src="robobi/images/sistemaSolarR.png"
                                     alt="Sistema de energia solar"
                                 />
                             </div>

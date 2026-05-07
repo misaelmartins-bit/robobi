@@ -50,7 +50,7 @@ const Navbar = () => {
                 transition={{ duration: 0.6 }}
             >
                 <a href="#" className="navbar-brand p-0">
-                    <img className='me-3' src="/restaurante/images/logoRobob-branca.png" alt="Robobi" style={{ height: "40px" }} />
+                    <img className='me-3' src="/robobi/images/logoRobob-branca.png" alt="Robobi" style={{ height: "40px" }} />
                 </a>
 
                 <div className="collapse navbar-collapse" id="navbarCollapse">
