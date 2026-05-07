@@ -1,23 +1,22 @@
 import CustomCursor from './components/CustomCursor.jsx';
 import Navbar from './components/Navbar.jsx';
-import Service from './components/Service.jsx';
-import About from './components/About.jsx';
-import Menu from './components/Menu.jsx';
+import Foco from './components/Foco.jsx';
+import Conheça from './components/Conheça.jsx';
+import Peças from './components/Peças.jsx';
 import Reservation from './components/Reservation.jsx';
-import Team from './components/Team.jsx';
-import Footer from './components/Footer.jsx';
+import Membro from './components/Membro.jsx';
+import Final from './components/Final.jsx';
 function App() {
 
   return (
     <>
       <CustomCursor />
       <Navbar />
-      <Service />
-      <About />
-      <Menu />
-      <Reservation />
-      <Team />
-      <Footer />
+      <Foco />
+      <Conheça />
+      <Peças />
+      <Membro />
+      <Final />
     </>
   )
 }

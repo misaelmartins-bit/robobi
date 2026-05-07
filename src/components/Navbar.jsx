@@ -1,11 +1,23 @@
-import Hero from './Hero.jsx';
-import { motion } from "framer-motion";
+import Hero from './Home.jsx';
+import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
-    const closeMenu = (e, id) => {
-        e.preventDefault(); // Impede o pulo brusco do link
 
-        // 1. Tenta fechar o menu Offcanvas
+    const navListVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: { staggerChildren: 0.1 }
+        }
+    };
+
+    const navItemVariants = {
+        hidden: { opacity: 0, y: -10 },
+        visible: { opacity: 1, y: 0 }
+    };
+
+    const closeMenu = (e, id) => {
+        e.preventDefault();
         const menu = document.getElementById('offcanvasDarkNavbar');
         if (menu) {
             const bsOffcanvas = window.bootstrap?.Offcanvas?.getInstance(menu);
@@ -17,103 +29,116 @@ const Navbar = () => {
             }
         }
 
-        // 2. Faz o scroll suave até a seção
         const targetSection = document.querySelector(id);
         if (targetSection) {
-            // Pequeno delay para o menu começar a fechar antes da tela correr
             setTimeout(() => {
                 targetSection.scrollIntoView({
-                    behavior: 'smooth', // O segredo da suavidade 
+                    behavior: 'smooth',
                     block: 'start'
                 });
-            }, 300); // 300ms é o tempo médio da animação do Bootstrap
+            }, 300);
         }
     };
 
     return (
-        <div id='Home' className="container-fluid position-relative p-0 min-vh-custom  d-flex flex-column">
+        <div id='Home' className="container-fluid position-relative p-0 min-vh-custom d-flex flex-column">
 
-            <motion.nav className="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-3 sticky-top"
-                initial={{ opacity: 0, x: -50 }} // Começa invisível e 50px para a esquerda
-                animate={{ opacity: 1, x: 0 }}    // Termina visível na posição original
-                transition={{ duration: 0.8, ease: "easeOut" }} // Velocidade e suavidade
+            <motion.nav
+                className="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-3 sticky-top"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
             >
                 <a href="#" className="navbar-brand p-0">
-                    <h1 className="text-warning m-0" style={{ fontSize: "30px" }}><i className="fa fa-utensils me-3"></i></h1>
+                    <img className='me-3' src="/restaurante/images/logoRobob-branca.png" alt="Robobi" style={{ height: "40px" }} />
                 </a>
 
-                {/* Para Desktop */}
-
-                <div className="collapse  navbar-collapse" id="navbarCollapse">
-                    <div className="navbar-nav ms-auto py-0 pe-4" style={{ fontSize: "18px" }}>
-                        {/* Exemplo de animação em cascata nos links */}
-                        {["Home", "Serviços", "Sobre", "Menu", "Equipe", "Contatos"].map((item, index) => (
+                <div className="collapse navbar-collapse" id="navbarCollapse">
+                    <motion.div
+                        className="navbar-nav ms-auto py-0 pe-4 align-items-center"
+                        variants={navListVariants}
+                        initial="hidden"
+                        animate="visible"
+                    >
+                        {[
+                            { name: "Home", href: "#Home" },
+                            { name: "Foco do Projeto", href: "#Foco" },
+                            { name: "Sobre o Projeto", href: "#Sobre" },
+                            { name: "Hardware & Peças", href: "#Menu" },
+                            { name: "Equipe", href: "#Equipe" },
+                        ].map((item, index) => (
                             <motion.a
-                                key={item}
-                                href={`#${item}`}
-                                className="nav-item nav-link"
-                                initial={{ opacity: 0, x: -20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: 0.1 * index }} // Cada um entra com um pequeno atraso
+                                key={index}
+                                href={item.href}
+                                className="nav-item nav-link nav-link-custom mx-2"
+                                variants={navItemVariants}
+                                whileHover={{ scale: 1.1, color: "#ffc107" }}
                             >
-                                {item}
+                                {item.name}
                             </motion.a>
                         ))}
+                    </motion.div>
 
-                    </div>
-                    <motion.a href="#Reservation" className="btn btn-warning py-2 px-4" style={{ fontSize: "18px" }}
-                        whileHover={{ scale: 1.02 }} // Bônus: aumenta um pouco ao passar o mouse
-                        whileTap={{ scale: 0.9 }}   // Diminui ao clicar
+                    <motion.a
+                        href="#Reservation"
+                        className="btn btn-warning py-2 px-4"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
                     >
-                        Reserve uma Mesa
+                        <i className="fa fa-desktop me-2"></i> Monitoramento
                     </motion.a>
                 </div>
 
-                {/* Para mobile */}
-
+ 
                 <button className="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
-                    <span className="fa fa-bars"></span>S
+
+                    <span className="fa fa-bars"></span>B
+
                 </button>
-
-                <div className="offcanvas offcanvas-end text-bg-dark d-lg-none" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
-                    <div className="offcanvas-header">
-                        <h1 className="text-warning m-0"><i className="fa fa-utensils me-3"></i></h1>
-                        <button type="button" className="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
-                    <div className="offcanvas-body">
-                        <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
-                            <li className="nav-item">
-                                <a className="nav-link" aria-current="page" href="#Home" onClick={(e) => closeMenu(e, '#Home')}>Home</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#Serviços" onClick={(e) => closeMenu(e, '#Serviços')}>Serviços</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#Sobre" onClick={(e) => closeMenu(e, '#Sobre')}>Sobre</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#Menu" onClick={(e) => closeMenu(e, '#Menu')}>Menu</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#Equipe" onClick={(e) => closeMenu(e, '#Equipe')}>Equipe</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#Contatos" onClick={(e) => closeMenu(e, '#Contatos')}>Contatos</a>
-                            </li>
-                        </ul>
-                        <a href="#Reservation" className="btn btn-warning py-2 px-4 fs-5 w-100 mt-3" onClick={(e) => closeMenu(e, '#Reservation')}>Reserve sua Mesa</a>
-                    </div>
-                </div>
-
-
             </motion.nav>
 
-            <div className="flex-grow-1 d-flex align-items-center">
-                <Hero />
+
+            <div className="offcanvas offcanvas-end text-bg-dark d-lg-none"
+                tabIndex="-1"
+                id="offcanvasDarkNavbar"
+                style={{ backgroundColor: "#1a1a1a", width: "100%", zIndex: 1050 }}>
+
+
+                <div className="offcanvas-header border-bottom border-secondary py-4 px-4">
+                    <img src="/restaurante/images/logoRobob-branca.png" alt="Robobi" style={{ height: "30px" }} />
+                    <button type="button" className="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+
+                <div className="offcanvas-body d-flex flex-column px-4">
+                    <ul className="navbar-nav justify-content-start flex-grow-1">
+                        {[
+                            { name: "Home", href: "#Home" },
+                            { name: "Foco do Projeto", href: "#Foco" },
+                            { name: "Sobre o Projeto", href: "#Sobre" },
+                            { name: "Hardware & Peças", href: "#Menu" },
+                            { name: "Equipe", href: "#Equipe" },
+                        ].map((item, index) => (
+                            <li className="nav-item mb-3" key={index}>
+                                <a className="nav-link fs-4" href={item.href} onClick={(e) => closeMenu(e, item.href)}>
+                                    {item.name}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+
+                    <div className="mt-auto pb-5">
+                        <a href="#Reservation" className="btn btn-warning py-3 px-4 fs-5 w-100 fw-bold shadow" onClick={(e) => closeMenu(e, '#Reservation')}>
+                            <i className="fa fa-desktop me-2"></i> Monitoramento
+                        </a>
+                    </div>
+                </div>
             </div>
 
+            <div className="flex-grow-1 hero-bg-custom d-flex align-items-center">
+                <Hero />
+            </div>
         </div>
-    )
-}
+    );
+};
 
-export default Navbar
+export default Navbar;

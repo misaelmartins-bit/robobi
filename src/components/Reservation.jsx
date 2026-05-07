@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import videoRes from "../assets/video.mp4";
 import React, { useRef, useState } from 'react';
 
 

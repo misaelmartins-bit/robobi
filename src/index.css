@@ -12,7 +12,7 @@ body {
     zoom: 0.9;
     -moz-transform: scale(0.9);
     -moz-transform-origin: top center;
-
+    background-color: #fdfcf0;
 }
 
 .custom-cursor-dot,
@@ -23,7 +23,6 @@ body {
     pointer-events: none;
     z-index: 9999;
     mix-blend-mode: difference;
-    /* Certifique-se de que não há margin aqui */
     margin: 0;
 }
 
@@ -50,12 +49,88 @@ body {
 }
 
 :root {
-    overflow-x: hidden;
-    width: 100%;
-    --warning: #f99500;
-    --light: #f3f3f3;
-    --dark: #212529;
+    --primary-gold: #e6b325;
+    --deep-forest: #1a2a1d;
+    --amazon-green: #2d4a31;
+    --soft-light: #f8f9fa;
+    --warning: #ffc107;
 }
+
+.hero-header {
+    min-height: 100vh;
+    background: linear-gradient(135deg,
+            rgba(26, 42, 29, 0.95) 0%,
+            rgba(45, 74, 49, 0.85) 100%),
+        url('../public/images/floresta.avif');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+}
+
+
+.btn-warning {
+    background-color: var(--primary-gold) !important;
+    border: none !important;
+    color: #1a2a1d !important;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(230, 179, 37, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-warning:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(230, 179, 37, 0.4);
+    background-color: #f5c43d !important;
+}
+
+
+.hero-header h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    letter-spacing: -1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-header p {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.85) !important;
+    max-width: 600px;
+}
+
+
+.navbar,
+.navbar.sticky-top,
+.navbar-dark,
+.sticky-top.navbar-dark {
+    transition: all 0.5s ease;
+    background: linear-gradient(to bottom,
+            rgba(230, 179, 37, 1) 0%,
+            /* Dourado sólido no topo */
+            rgba(230, 179, 37, 0.7) 50%,
+            /* Transição do dourado */
+            rgba(40, 65, 44, 0.974) 85%,
+            rgba(40, 65, 44, 0.974) 100%
+            /* Termina sumindo suavemente */
+        ) !important;
+    border-bottom: none !important;
+    backdrop-filter: blur(6px) !important;
+    -webkit-backdrop-filter: blur(6px);
+    position: fixed !important;
+    width: 100%;
+    top: 0;
+    z-index: 2000 !important;
+}
+
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #ffffff !important;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.7) !important;
+    font-weight: 600 !important;
+}
+
 
 .ff-secondary {
     font-family: 'Pacifico', cursive;
@@ -78,18 +153,21 @@ body {
 }
 
 .min-vh-custom {
-    min-height: 125vh !important;
+    min-height: 110vh !important;
 }
 
-/* Estilo base para o link da navbar */
+.hero-bg-custom {
+    background-color: #ffc107;
+}
+
+
 .navbar-nav .nav-link {
     position: relative;
-    /* Necessário para posicionar a linha */
     padding-bottom: 2px;
     transition: color 0.3s ease;
 }
 
-/* Criando a linha invisível */
+
 .navbar-nav .nav-link::after {
     content: "";
     position: absolute;
@@ -102,12 +180,11 @@ body {
     transition: width 0.3s ease-in-out;
 }
 
-/* Quando passa o mouse, a linha cresce da esquerda para a direita */
 .navbar-nav .nav-link:hover::after {
     width: 100%;
 }
 
-/* Cor do texto no hover (caso não esteja mudando ainda) */
+
 .navbar-nav .nav-link:hover {
     color: var(--bs-warning) !important;
 }
@@ -143,11 +220,14 @@ body {
     max-height: 45px;
 }
 
+.btn-dark {
+    background-color: var(--dark) !important;
+}
+
 @media (max-width: 991.98px) {
 
     body {
         zoom: 1;
-        /* Volta ao normal no mobile */
         -moz-transform: scale(1);
     }
 
@@ -156,26 +236,45 @@ body {
     }
 
     .navbar-dark {
-        position: fixed !important;
-        top: 0;
-        left: 0;
-        /* Garante que comece do encosto esquerdo da tela */
-        width: 100% !important;
-        /* Força a ocupar a largura total do navegador */
-        z-index: 1050;
-        background: var(--dark) !important;
-        display: flex;
-        margin-bottom: 0 !important;
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
     }
 
-    /* Precisamos garantir que o container dentro da nav se comporte bem */
+   
+    .hero-header {
+        padding-top: 80px !important;
+        /* Espaço para a navbar fixa */
+        padding-bottom: 20px !important;
+    }
+
+  
+    .hero-header img {
+        width: 100% !important;
+        /* Em vez de 120% */
+        max-width: 280px;
+      
+        margin: 0 auto;
+        display: block;
+    }
+
+   
+    .hero-header h1 {
+        font-size: 1.8rem !important;
+    }
+
+    .hero-header p {
+        font-size: 1rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+  
     .navbar-dark .container,
     .navbar-dark .container-fluid {
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        /* Mantém a logo na esquerda e o botão na direita */
+       
     }
 
     .container-fluid.position-relative.p-0 {
@@ -184,9 +283,18 @@ body {
 
     .sticky-top.navbar-dark {
         position: fixed;
-        /* ou fixed */
         top: 0;
         z-index: 1020;
+    }
+
+    .offcanvas {
+        z-index: 2000 !important;
+   
+    }
+
+  
+    .offcanvas-backdrop {
+        z-index: 1500 !important;
     }
 
     .navbar-dark .navbar-collapse {
@@ -203,38 +311,65 @@ body {
     .navbar-dark .navbar-brand img {
         max-height: 45px;
     }
+
+    #Menu .container {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+
+   
+    .icon-tab {
+        font-size: 1.5rem !important; 
+    }
+
+    .label-tab {
+        font-size: 0.9rem !important;
+    }
+
+    
+    .nav-pills::-webkit-scrollbar {
+        display: none;
+    }
+    .nav-pills {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+   
+    #Menu .col-lg-6 {
+        margin-bottom: 15px;
+    }
 }
 
 @media (min-width: 992px) {
+
+    .col-custom-5 {
+        flex: 0 0 auto;
+        width: 20% !important;
+    }
+
+  
+    .col-custom-5 .service-item h5 {
+        font-size: 0.95rem;
+        white-space: nowrap;
+    }
+
+    .col-custom-5 .service-item p {
+        font-size: 0.85rem;
+    }
+
     .navbar-dark {
-        position: absolute;
+        position: fixed !important;
         width: 100%;
         top: 0;
         left: 0;
-        z-index: 999;
-        background: transparent !important;
     }
 
-    .sticky-top.navbar-dark {
-        position: fixed;
-        background: var(--dark) !important;
-    }
 
 }
 
-.hero-header {
-    min-height: 100vh;
-    background: linear-gradient(rgba(15, 23, 43, .9), rgba(15, 23, 43, .9)), url(..\src\assets\img2.avif);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-}
 
-.hero-header img {
-    animation: imgRotate 50s linear infinite;
-}
+
 
 @keyframes imgRotate {
     100% {
@@ -289,10 +424,11 @@ body {
     display: flex;
     flex-direction: column;
     height: 100%;
+    background: #fff;
 }
 
 .service-item:hover {
-    background: var(--warning);
+    background: var(--warning) !important;
     box-shadow: 0 0 45px rgba(0, 0, 0, .2);
 }
 
@@ -322,7 +458,6 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* Faz o vídeo preencher a área sem sobrar espaços brancos */
 }
 
 
@@ -462,13 +597,13 @@ body {
     border-right: none;
 }
 
-/* Impede que o botão da newsletter herde o ícone de seta (\f105) */
+
 .footer .btn.btn-newsletter::before {
     display: none !important;
     content: none !important;
 }
 
-/* Garante que o botão não herde o tamanho fixo dos botões sociais */
+
 .footer .btn.btn-newsletter {
     width: auto !important;
     height: auto !important;
@@ -485,34 +620,29 @@ body {
 
 
 /* Container que segura o card e a luz */
-.card-wrapper {
+.card-wrapper1 {
     position: relative;
     padding: 3px;
-    /* Grossura da borda iluminada */
     overflow: hidden;
     border-radius: 10px;
-    /* Mesma curvatura do seu service-item */
     z-index: 0;
     height: 100%;
 }
 
-/* O feixe de luz giratório */
-.border-animation {
+.border-animation1 {
     position: absolute;
     width: 200%;
-    /* Bem maior que o card para cobrir tudo ao girar */
     height: 200%;
     background: conic-gradient(from 0deg,
             transparent 0deg,
             transparent 270deg,
-            var(--warning) 360deg);
+            var(--card-color) 360deg);
     top: -50%;
     left: -50%;
     z-index: -2;
     animation: rotateLight 4s linear infinite;
 }
 
-/* Fundo preto/escuro interno para o centro do card não ficar transparente */
 .service-item {
     background: #fff;
     /* Ou a cor de fundo do seu site */
@@ -521,7 +651,7 @@ body {
     height: 100%;
 }
 
-/* Keyframes para girar a luz */
+
 @keyframes rotateLight {
     from {
         transform: rotate(0deg);
@@ -532,12 +662,10 @@ body {
     }
 }
 
-/* Opcional: faz a luz brilhar mais no hover */
 .card-wrapper:hover .border-animation {
     animation-duration: 2s;
-    /* Gira mais rápido no hover */
     filter: blur(2px);
-    /* Dá um efeito de neon */
+
 }
 
 
@@ -547,25 +675,23 @@ body {
 .card-wrapper {
     position: relative;
     padding: 3px;
-    /* Espessura da borda colorida */
     overflow: hidden;
     border-radius: 15px;
-    /* Ajuste para combinar com o arredondado do card */
     z-index: 0;
     height: 100%;
 }
 
-/* O feixe de luz giratório */
+
 .border-animation {
     position: absolute;
     width: 250%;
-    /* Aumentado para garantir cobertura total em cards verticais */
+  
     height: 250%;
     background: conic-gradient(from 0deg,
             transparent 0deg,
             transparent 270deg,
             #ffc107 360deg
-            /* Cor warning manual se a variável não carregar */
+           
         );
     top: -75%;
     left: -75%;
@@ -573,14 +699,13 @@ body {
     animation: rotateLight 4s linear infinite;
 }
 
-/* Garante que o fundo do card seja sólido para a luz não vazar por dentro */
+
 .team-item {
     background: #fff;
     position: relative;
     z-index: 1;
     height: 100%;
     border-radius: 12px;
-    /* Ligeiramente menor que o wrapper para encaixar */
 }
 
 @keyframes rotateLight {
@@ -593,9 +718,8 @@ body {
     }
 }
 
-/* Efeito Neon no Hover */
+
 .card-wrapper:hover .border-animation {
     animation-duration: 2s;
     filter: blur(3px);
-    /* Brilho levemente maior para a equipe */
 }
