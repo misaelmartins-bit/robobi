@@ -105,7 +105,7 @@ const Navbar = () => {
 
 
                 <div className="offcanvas-header border-bottom border-secondary py-4 px-4">
-                    <img src="/restaurante/images/logoRobob-branca.png" alt="Robobi" style={{ height: "30px" }} />
+                    <img src="/robobi/images/logoRobob-branca.png" alt="Robobi" style={{ height: "30px" }} />
                     <button type="button" className="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
 
