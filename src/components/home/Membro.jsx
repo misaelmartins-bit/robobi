@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-const Team = () => {
+const Membro = () => {
     const itemVariants = {
         hidden: { opacity: 0, y: 30, scale: 0.9 },
         visible: (i) => ({
@@ -94,4 +94,4 @@ const Team = () => {
     );
 }
 
-export default Team;
+export default Membro;

@@ -15,6 +15,12 @@ body {
     background-color: #fdfcf0;
 }
 
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
 .custom-cursor-dot,
 .custom-cursor-border {
     position: fixed;
@@ -722,4 +728,371 @@ body {
 .card-wrapper:hover .border-animation {
     animation-duration: 2s;
     filter: blur(3px);
+}
+
+
+
+
+
+/* ------------------------------------- */
+/* outra tela */
+
+/* Componente MonitorHeader */
+
+.monitor-page-wrapper {
+  
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+
+    background: 
+        
+        linear-gradient(
+            rgba(26, 36, 31, 0.9),
+            rgba(26, 36, 31, 0.9)
+        ),
+     
+        url('../public/images/floresta.avif'); 
+
+    
+    background-size: cover;        
+    background-position: center;  
+    background-repeat: no-repeat; 
+    background-attachment: fixed;  
+}
+.monitor-header {
+    
+    background-color: transparent !important; 
+    padding: 30px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    box-shadow: none; 
+}
+
+
+.header-left h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.header-left p {
+    font-size: 1rem;
+    color: #a0aec0;
+}
+
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.time-box {
+    background: #121814;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.btn-voltar {
+    background-color: #ffc107;
+    color: #1a241f !important;
+    padding: 10px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+.stat-card-item {
+    background-color: rgba(18, 24, 20, 0.8); 
+    border-radius: 12px;
+    padding: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.stat-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.stat-icon {
+    width: 50px;
+    height: 50px;
+}
+
+.stat-value {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin: 5px 0;
+}
+
+
+/* Componente MonitorStatCard */
+
+
+.system-status-card {
+    background-color: rgba(18, 24, 20, 0.8); 
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    color: white;
+    height: 100%;
+}
+
+.system-status-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.status-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.status-item:last-child {
+    border-bottom: none;
+}
+
+.status-label {
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.status-value {
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+
+
+
+
+.recent-alerts-header {
+    display: flex;
+    align-items: center; 
+    gap: 10px;          
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin: 0;
+    white-space: nowrap;
+    letter-spacing: 1px;
+    color: #ffffff;
+    text-transform: uppercase; 
+}
+
+.title-line {
+    height: 2px;          
+    background-color: #ffc107; 
+    width: 35px;             
+    display: inline-block;
+}
+
+.recent-alerts-container {
+    background-color: rgba(18, 24, 20, 0.85); 
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.alerts-table {
+    background-color: transparent !important; 
+    margin-bottom: 0;
+    border-collapse: collapse; 
+}
+
+.alerts-table thead th {
+    background-color: transparent !important;
+    color: #888;
+    border: none;
+    font-size: 0.8rem;
+    padding-bottom: 15px;
+}
+
+
+.alerts-table tbody td {
+    background-color: transparent !important;
+    color: white !important;
+    padding: 18px 0;
+    vertical-align: middle;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important; 
+    border-top: none !important;
+}
+
+
+.alerts-table tbody tr:last-child td {
+    border-bottom: none !important;
+}
+
+
+.location-sub {
+    color: #666;
+    font-size: 0.75rem;
+}
+
+.risk-text.risk-low { color: #2ecc71 !important; }
+.risk-text.risk-mid { color: #f1c40f !important; }
+.risk-text.risk-high { color: #e74c3c !important; }
+
+.alert-time {
+    font-weight: 700;
+}
+
+@media (max-width: 991.98px) {
+
+    .monitor-page-wrapper {
+        background-attachment: scroll; 
+        padding-top: 80px;
+    }
+
+  
+    .monitor-header {
+        padding: 20px;
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+        margin-top: 0 !important;
+    }
+
+    .header-left h1 {
+        font-size: 1.8rem;
+    }
+
+    .header-right {
+        width: 100%;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .time-box, .btn-voltar {
+        width: 100%;
+        text-align: center;
+    }
+
+   
+    .stat-card-item {
+        padding: 15px;
+        margin-bottom: 10px;
+    }
+
+    .stat-header {
+        gap: 15px;
+        align-items: center;
+    }
+
+    .stat-value {
+        font-size: 2.2rem; 
+    }
+
+    .stat-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+  
+    .recent-alerts-container {
+        padding: 15px;
+    }
+
+    .section-title {
+        font-size: 1rem;
+    }
+
+    .title-line {
+        width: 20px;
+    }
+
+   
+    .table-responsive {
+        border: none;
+    }
+
+  
+    .alerts-table thead {
+        display: table-header-group; 
+    }
+
+  
+    .alerts-table thead th {
+        font-size: 0.7rem;    
+        padding-bottom: 10px;
+        white-space: nowrap; 
+        color: #888 !important;
+    }
+
+
+    .alerts-table tbody td {
+        padding: 10px 4px;   
+        font-size: 0.8rem;   
+    }
+
+   
+    .recent-alerts-container {
+        padding: 15px 10px;
+        overflow-x: auto;  
+    }
+
+
+    .system-status-card {
+        margin-top: 20px;
+        height: auto;
+    }
+
+    @media (max-width: 991.98px) {
+
+    .recent-alerts-header {
+        display: flex;
+        align-items: center;
+        justify-content: center; 
+        width: 100%;
+        gap: 8px;
+        margin-bottom: 15px;
+    }
+
+    .title-line {
+        width: 25px; 
+        flex-shrink: 0; 
+        height: 2px;
+    }
+
+    .section-title {
+        font-size: 0.9rem; 
+        text-align: center;
+    }
+}
+}
+
+@media (max-width: 575.98px) {
+    .stat-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .stat-title-group h3 {
+        font-size: 1.1rem;
+    }
 }

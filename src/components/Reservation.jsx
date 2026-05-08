@@ -3,9 +3,9 @@ import React, { useRef, useState } from 'react';
 
 
 const Reservation = () => {
-    // 1. Criado referência para o vídeo
+
     const videoRef = useRef(null);
-    // 2. Estado para saber se está tocando ou não
+  
     const [isPlaying, setIsPlaying] = useState(false);
 
     const toggleVideo = () => {
@@ -18,12 +18,12 @@ const Reservation = () => {
     };
 
     const slideLeftVariants = {
-        hidden: { opacity: 0, x: 100 }, // Começa 100px para a direita
+        hidden: { opacity: 0, x: 100 }, 
         visible: (i) => ({
             opacity: 1,
             x: 0,
             transition: {
-                delay: i * 0.1, // Efeito cascata nos campos do formulário
+                delay: i * 0.1,
                 duration: 0.6,
                 ease: "easeOut"
             }
@@ -46,7 +46,7 @@ const Reservation = () => {
                                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                             />
 
-                            {/* Container do Botão no canto */}
+                            
                             <div style={{
                                 position: 'absolute',
                                 bottom: '40px',
@@ -57,7 +57,7 @@ const Reservation = () => {
                                 justifyContent: 'center'
                             }}>
 
-                                {/* O PULSO (Ondas) */}
+                            
                                 <motion.div
                                     animate={{
                                         scale: [1, 1.5, 2],
@@ -77,7 +77,7 @@ const Reservation = () => {
                                     }}
                                 />
 
-                                {/* Segunda camada do pulso (para ficar mais preenchido) */}
+                             
                                 <motion.div
                                     animate={{
                                         scale: [1, 1.8],
@@ -98,12 +98,12 @@ const Reservation = () => {
                                     }}
                                 />
 
-                                {/* BOTÃO PRINCIPAL */}
+                                
                                 <button
                                     type="button"
                                     onClick={toggleVideo}
                                     style={{
-                                        position: 'relative', // Relative aqui para ficar acima das ondas
+                                        position: 'relative', 
                                         width: '60px',
                                         height: '60px',
                                         backgroundColor: '#fea116',

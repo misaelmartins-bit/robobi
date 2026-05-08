@@ -1,4 +1,7 @@
 import { motion } from "framer-motion";
+import { Link } from 'react-router-dom';
+
+const MotionLink = motion(Link);
 
 const About = () => {
 
@@ -11,7 +14,7 @@ const About = () => {
         }
     };
 
- 
+
     const textVariants = {
         hidden: { opacity: 0, x: 50 },
         visible: {
@@ -25,10 +28,10 @@ const About = () => {
         <div id="Sobre" className='container-fluid py-5'>
             <div className='container'>
                 <div className='row g-5 align-items-center'>
-            
+
                     <div className='col-lg-6'>
                         <div className='row g-3'>
-                           
+
                             <div className="col-6">
                                 <motion.img
                                     className='img-fluid rounded w-100 shadow'
@@ -38,7 +41,7 @@ const About = () => {
                                 />
                             </div>
 
-                           
+
                             <div className="col-6" style={{ paddingTop: '40px' }}>
                                 <motion.img
                                     variants={zoomVariants}
@@ -55,17 +58,17 @@ const About = () => {
                                 />
                             </div>
 
-                     
+
                             <div className='col-6'>
                                 <motion.img
                                     className='img-fluid rounded w-100 shadow'
-                                    style={{ aspectRatio: '16/15', objectFit: 'cover', marginTop: '-20px' }} 
+                                    style={{ aspectRatio: '16/15', objectFit: 'cover', marginTop: '-20px' }}
                                     src="/robobi/images/desenvolvimentoRo.png"
                                     alt="Desenvolvimento do projeto"
                                 />
                             </div>
 
-                           
+
                             <div className='col-6' style={{ paddingTop: '20px' }}>
                                 <motion.img
                                     variants={zoomVariants}
@@ -84,7 +87,7 @@ const About = () => {
                         </div>
                     </div>
 
-                 
+
                     <motion.div
                         className='col-lg-6'
                         variants={textVariants}
@@ -127,14 +130,16 @@ const About = () => {
                             </div>
                         </div>
 
-                        <motion.a
+                        <MotionLink
+                            to="/monitoramento" 
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            href="#Serviços"
                             className='btn btn-success py-3 px-5 mt-2'
+                            style={{ textDecoration: 'none' }}
                         >
                             Monitorar Agora
-                        </motion.a>
+                        </MotionLink>
+
                     </motion.div>
                 </div>
             </div>

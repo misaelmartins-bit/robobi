@@ -28,7 +28,7 @@ const Hero = () => {
 
                         <div className="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start">
                             <motion.a
-                                href="#Menu"
+                                href="#Sobre"
                                 className="btn btn-warning py-3 px-5 fs-5"
                                 initial={{ opacity: 0, y: 30 }}
                                 animate={{ opacity: 1, y: 0 }}

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Footer = () => {
+const Final = () => {
     return (
         <div>
             <div id='Contatos' className="container-fluid bg-dark text-light footer mt-5 pt-5">
@@ -52,4 +52,4 @@ const Footer = () => {
     )
 }
 
-export default Footer
+export default Final

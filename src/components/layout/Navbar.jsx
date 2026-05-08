@@ -1,5 +1,9 @@
-import Hero from './Home.jsx';
+import Hero from '../home/Hero.jsx';
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from 'react-router-dom';
+
+
+const MotionLink = motion(Link);
 
 const Navbar = () => {
 
@@ -79,17 +83,18 @@ const Navbar = () => {
                         ))}
                     </motion.div>
 
-                    <motion.a
-                        href="#Reservation"
+                    <MotionLink
+                        to="/monitoramento" 
                         className="btn btn-warning py-2 px-4"
+                        style={{ textDecoration: 'none' }} 
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                     >
                         <i className="fa fa-desktop me-2"></i> Monitoramento
-                    </motion.a>
+                    </MotionLink>
                 </div>
 
- 
+
                 <button className="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
 
                     <span className="fa fa-bars"></span>B
@@ -127,9 +132,15 @@ const Navbar = () => {
                     </ul>
 
                     <div className="mt-auto pb-5">
-                        <a href="#Reservation" className="btn btn-warning py-3 px-4 fs-5 w-100 fw-bold shadow" onClick={(e) => closeMenu(e, '#Reservation')}>
+                        <MotionLink
+                            to="/monitoramento" 
+                            className="btn btn-warning py-3 px-4 w-100 fs-5 fw-bold"
+                            style={{ textDecoration: 'none' }}
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
                             <i className="fa fa-desktop me-2"></i> Monitoramento
-                        </a>
+                        </MotionLink>
                     </div>
                 </div>
             </div>
