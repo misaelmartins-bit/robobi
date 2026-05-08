@@ -4,7 +4,7 @@ import SystemStatus from "./SystemStatus";
 const MonitorStatCard = () => {
     const cards = [
         {
-            icon: "/robobi/images/chamas-icon.png",
+            icon: "/robobi/images/fireee.png",
             title: "Chamas / Fogo",
             value: "0",
             label: "Alerta(s) hoje"
