@@ -4,19 +4,19 @@ import SystemStatus from "./SystemStatus";
 const MonitorStatCard = () => {
     const cards = [
         {
-            icon: "public/images/fireee.png",
+            icon: "/robobi/images//images/fireee.png",
             title: "Chamas / Fogo",
             value: "0",
             label: "Alerta(s) hoje"
         },
         {
-            icon: "public/images/fumaca-icon.png",
+            icon: "/robobi/images/fumaca-icon.png",
             title: "Fumaça",
             value: "3",
             label: "Alerta(s) hoje"
         },
         {
-            icon: "public/images/som-icon.png",
+            icon: "/robobi/images/som-icon.png",
             title: "Sons Suspeitos",
             value: "8",
             label: "Alerta(s) hoje"
